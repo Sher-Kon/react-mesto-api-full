@@ -1,0 +1,21 @@
+.header__email {
+    text-decoration: none;
+    font-size: 18px;/*22px*/
+    line-height: 22px;/*30px*/
+    font-weight: 500;
+    margin-right: 15px;
+    color: white;
+    }
+
+    @media screen and (max-width: 750px) {
+        .header__email {
+            flex-direction: column; /* столбец */
+            align-items: center; /*  */
+            margin-top: 0px;
+            margin-bottom: 5px;
+            margin-right: 1px;
+            font-size: 14px;/*22px*/
+            line-height: 17px;/*30px*/
+        }
+    }
+    

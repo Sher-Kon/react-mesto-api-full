@@ -1,0 +1,16 @@
+.element__txt {
+  width: 200px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 900;
+  font-style: normal;
+  text-align: start;
+  z-index: 1; /* накрывает для всех кто меньше */
+  margin-top: 24px; /*отступ */
+  margin-left: 21px;
+  margin-bottom: 23px;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

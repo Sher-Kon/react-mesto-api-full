@@ -1,0 +1,30 @@
+.profile__info-edit-btn {
+  display: flex;
+  align-items: center;/**/
+  padding: 0;
+  margin-left: 18px;
+  margin-top: 15px;
+  width: 24px;
+  height: 24px;
+  background-color: black;/**/
+  background: url("../../../images/Rectangle-edit.svg") no-repeat;/**/
+  background-size: cover;/**/
+  border: white;/**/
+  border: 1px;
+  cursor: pointer;
+}
+
+.profile__info-edit-btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 750px) {
+  .profile__info-edit-btn {
+        width: 18px;
+        height: 18px;
+        margin: 0;
+        position: absolute;
+        top: 30px;/**/
+        right: 10px;/**/
+  }
+}

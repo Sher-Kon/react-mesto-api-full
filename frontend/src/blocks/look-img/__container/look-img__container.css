@@ -1,0 +1,25 @@
+.look-img__container {
+  display: flex;
+  flex-direction: column; /* столбец */
+  align-items: center; /*  */
+  width: 816px;
+  height: 540px;
+  margin: auto;
+  position: relative;/* для кн. close */
+  background: #fff;
+  z-index: 4; /* накрывает для всех кто меньше */
+}
+
+  @media screen and (max-width: 960px) {
+    .look-img__container {
+      width: 433px;
+      height: 540px;
+      }
+  }
+
+  @media screen and (max-width: 750px) {
+    .look-img__container {
+      width: 240px;
+      height: 299px;
+      }
+  }

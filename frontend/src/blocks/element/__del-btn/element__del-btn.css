@@ -1,0 +1,17 @@
+.element__del-btn {
+    position: absolute;
+    width: 18px;
+    height: 19px;
+    padding: 0;
+    top: 20px;
+    right: 20px;
+    background: url("../../../images/musor.svg") no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;/*плавность*/
+  }
+  
+  .element__del-btn:hover {
+    opacity: 0.6;
+  }

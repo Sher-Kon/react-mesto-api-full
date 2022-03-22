@@ -1,0 +1,13 @@
+.profile__edit-btn-img {
+    margin: auto;
+    width: 10px;
+    height: 10px;
+    color: white;
+}
+
+@media screen and (max-width: 750px) {
+    .profile__edit-btn-img {
+          width: 7.5px;
+          height: 7.5px;
+    }
+  }

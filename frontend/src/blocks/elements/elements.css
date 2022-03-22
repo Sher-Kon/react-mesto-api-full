@@ -1,0 +1,22 @@
+.elements {
+  width: 897px;/*880*/
+  margin-left: 0;
+  margin-bottom: 47px; /*67= 47 +20*/
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 960px) {
+  .elements {
+      width: 598px;/*640*/
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .elements {
+      width: 299px;/*282*/
+      flex-direction: column; /* столбец */
+      margin-bottom: 28px; /*48= 28 +20*/
+  }
+}

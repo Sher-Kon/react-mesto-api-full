@@ -1,0 +1,142 @@
+.log_in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;/*calc(100vh - 140px)*/
+    justify-content: start; /*center;*/
+  }
+  
+  .log_in h2 {
+    text-align: center;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 400;
+    max-width: 500px;
+    margin: 20px 0;
+    margin-top: 60px;
+  }
+  
+  .log_in p {
+    font-size: 20px;
+    line-height: 23px;  
+    max-width: 350px;
+  }
+
+  .log_in__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .log_in-btn {
+    margin-top: 216px;/*  */
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+    font-style: normal;
+    width: 358px;
+    height: 50px;
+    border-radius: 2px;
+    border: none;/**/
+    cursor: pointer;
+    background-color: white; /* #ffdb4d;*/
+    color: black;
+  }
+  
+  .log_in-btn:hover {
+    opacity: 0.8;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .log_in-btn {
+        margin-top: 45px;/**/
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+  }
+  
+  .log_in-text {
+    width: 358px;
+    margin-top: 17px;/*17+13=30*/
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+    font-style: normal;
+    text-align: start;
+    border: none;
+    padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+    border-bottom: 1px solid #CCCCCC;/*rgba(0, 0, 0, 0.2);*/
+  }
+  
+  @media screen and (max-width: 750px) {
+    .log_in-text {
+        width: 238px;
+    }
+  }
+
+  .log_in-header {
+    width: 880px;
+    margin-top: 45px;
+    display: flex;
+    flex-direction: row; /* строка */
+    justify-content: space-between; /* расположить равномерно */
+    background-color: black;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);/*#545454 серая полоса*/
+    text-decoration: none;
+    color: white;
+}
+
+@media screen and (max-width: 960px) {
+    .log_in-header {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .log_in-header {
+        width: 320px;
+        margin-top: 28px;
+    }
+}  
+
+.log_in-logo {
+  width: 144px; /*142*/
+  height: 33px;
+  margin-bottom: 41px;
+  background: url("../images/logo.svg") no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 750px) {
+  .log_in-logo {
+      width: 104px;
+      height: 24px;
+      margin-left: 27px;
+      margin-bottom: 31px;
+  }
+}
+
+.log_in-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;/*18px*/
+  line-height: 22px;/*22px*/
+  font-weight: 400;
+  margin-right: 15px;
+}
+@media screen and (max-width: 750px) {
+  .log_in-link {
+      font-size: 14px;/*18px*/
+      line-height: 17px;/*22px*/
+      margin-top: 13px;
+  }
+}
+

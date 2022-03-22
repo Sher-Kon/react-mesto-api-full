@@ -1,0 +1,21 @@
+.profile__info-job {
+  width: 336px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: start;
+  z-index: 1; /* накрывает для всех кто меньше */
+  margin-top: 16px; /* отступ */
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 750px) {
+  .profile__info-job {
+      width: 280px;
+      font-size: 14px;
+      line-height: 17px;
+      margin-top: 14px; /* отступ */
+      text-align: center;
+  }
+}

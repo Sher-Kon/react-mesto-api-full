@@ -1,0 +1,12 @@
+.element {
+  display: flex;/**/
+  flex-wrap: wrap;
+  position: relative;/* для кн. del */
+  width: 282px; /*282*/
+  margin-left: 8.5px;
+  margin-right: 8.5px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  z-index: 1; /* накрывает для всех кто меньше */
+  background-color: #ffffff;
+}

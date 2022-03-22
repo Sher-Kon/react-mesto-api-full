@@ -1,0 +1,18 @@
+.confirm__container {
+    display: flex;
+    flex-direction: column; /* столбец */
+    align-items: center; /*  */
+    width: 430px;
+    border-radius: 10px;
+    position: relative;/* для кн. close */
+    margin: auto;
+    background: #fff;
+    z-index: 4; /* накрывает для всех кто меньше */
+  }
+  
+  @media screen and (max-width: 750px) {
+    .confirm__container {
+        width: 282px;
+    }
+  }
+  

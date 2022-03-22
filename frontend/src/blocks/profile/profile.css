@@ -1,0 +1,23 @@
+.profile {
+  display: flex;
+  position: relative;
+  width: 880px;
+  align-items: center; /* располагаем блоки по центру */
+  margin-top: 40px; /**/
+  margin-bottom: 47px; /**/
+}
+
+@media screen and (max-width: 960px) {
+  .profile {
+      width: 700px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .profile {
+      flex-direction: column; /* столбец */
+      width: 282px;
+      margin-bottom: 36px; /**/
+      margin-left: 10px;
+  }
+}

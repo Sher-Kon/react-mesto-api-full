@@ -1,0 +1,21 @@
+.bild-card__btn-save_active {
+    background-color: black; /* #ffdb4d;*/
+    color: white;
+    border: none;/**/
+    cursor: pointer;
+  }
+  
+  .bild-card__btn-save_active:hover {
+    opacity: 0.8;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .bild-card__btn-save_active {
+        margin-top: 45px;
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+  }
+  

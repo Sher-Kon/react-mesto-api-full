@@ -1,0 +1,17 @@
+.profile__avatar {
+  width: 127px; /*168*/
+  height: 127px; /*168*/
+  margin-top: 0; /*без отступов */
+  margin-bottom: 0;
+  padding: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  background-size: cover;
+  z-index: 5; /* накрывает для всех кто меньше */
+  cursor: pointer;
+}
+
+.profile__avatar:hover {
+  z-index: 1; /* ложится вниз для всех кто больше */
+  opacity: 0.3;
+}

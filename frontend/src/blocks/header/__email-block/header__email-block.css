@@ -1,0 +1,16 @@
+.header__email-block {
+  display: flex;
+  flex-direction: row; /* строка */
+  /*flex-wrap: wrap;*/
+  /*width: 282px;*/
+  }
+
+  @media screen and (max-width: 750px) {
+      .header__email-block {
+          flex-direction: column; /* столбец */
+          align-items:flex-end; /*  */
+          margin-right: 10px;
+          width: 182px;
+      }
+  }
+  

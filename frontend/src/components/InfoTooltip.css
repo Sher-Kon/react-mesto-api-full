@@ -1,0 +1,96 @@
+.infotool {
+    background: rgba(0, 0, 0, 0.5); /**/
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3; /* накрывает для всех кто меньше */
+    /* медленное исчезновение */
+    display: flex;/*none;/* нет изображения исх */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s linear;
+  }
+
+  .infotool_opened {
+    /* медленное исчезновение */
+    visibility: visible;/**/
+    opacity: 1;/**/
+    transition-delay:0s;
+  }
+ 
+  .infotool__container {
+    display: flex;
+    flex-direction: column; /* столбец */
+    align-items: center; /*  */
+    width: 430px;
+    border-radius: 10px;
+    position: relative;/* для кн. close */
+    margin: auto;
+    background: #fff;
+    z-index: 4; /* накрывает для всех кто меньше */
+  }
+  
+  @media screen and (max-width: 750px) {
+    .infotool__container {
+        width: 282px;
+    }
+  }
+
+  .infotool__title {
+    width: 358px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 900;
+    font-style: normal;
+    text-align: center;/*start*/
+    margin-top: 32px; /* отступ */
+    margin-bottom: 60px;/*54=27+13+14 27+14*/
+    color: black;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .infotool__title {
+        width: 238px;
+        font-size: 18px;
+        line-height: 22px;
+        margin-top: 40px; /* отступ */
+        margin-bottom: 50px;/**/
+      }
+  }
+
+  .infotool__x-btn {
+    position: absolute;
+    padding: 0;
+    top: -40px;
+    right: -40px;
+    width: 32px;
+    height: 32px;
+    border: none; /**/
+    background: url("../images/close.svg") no-repeat;
+    background-size: cover;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .infotool__x-btn:hover {
+    opacity: 0.6;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .infotool__x-btn {
+        width: 20px;
+        height: 20px;
+        right: 0px; /**/
+        top: -36px;
+    }
+  }
+
+  .infotool__img {
+    width: 120px; /**/
+    height: 120px; /**/
+    object-fit: cover;
+    background-size: cover;
+    margin-top: 60px;
+  }  

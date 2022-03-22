@@ -1,0 +1,9 @@
+.element__like {
+    display: flex;/**/
+    flex-direction: column; /* столбец */
+    align-items: center; /*  */
+    width: 22px; /*like-btn*/
+    margin-left: 18px;/*отступ справа 22*/
+    /*margin-right: 2px;/*22px*/
+    /*margin-top: 22px;*/
+  }

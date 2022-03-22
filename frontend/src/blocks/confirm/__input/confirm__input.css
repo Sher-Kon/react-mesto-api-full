@@ -1,0 +1,15 @@
+.confirm__input {
+    display: flex;
+    flex-direction: column; /* столбец */
+    align-items: center; /*  */
+    justify-content: space-between; /**/
+    border: none;
+    margin-bottom: 37px;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .confirm__input {
+        margin-bottom: 25px;
+    }
+  }
+  

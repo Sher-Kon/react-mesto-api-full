@@ -1,0 +1,16 @@
+.popup__input-cover {
+    display: flex;
+    flex-direction: column; /* столбец */
+    align-items: center; /*  */
+    width: 358px;
+    height: 58px;
+    border: none;
+    margin: 0;
+}
+
+  @media screen and (max-width: 750px) {
+    .popup__input-cover {
+        width: 238px;
+    }
+  }
+  

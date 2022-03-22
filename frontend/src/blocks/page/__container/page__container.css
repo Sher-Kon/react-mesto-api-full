@@ -1,0 +1,6 @@
+.page__container {
+    margin: auto;
+    display: flex;
+    flex-direction: column; /* столбец */
+    align-items: center; /* располагаем блоки по центру */
+}

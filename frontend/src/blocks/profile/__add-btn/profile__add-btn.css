@@ -1,0 +1,36 @@
+.profile__add-btn {
+  display: flex; /* для плюса */
+  align-items: center; /* по высоте */
+  justify-content: center; /*по ширине*/
+  align-self: center; /**/
+  margin-left: 246px;
+  width: 150px;
+  height: 50px;
+  background: url("../../../images/Rectangle-short.svg") no-repeat;
+  background-size: cover;
+  padding: 0;
+  border: white;
+  border: 2px;
+  border-radius: 2px; /**/
+  cursor: pointer;
+}
+
+.profile__add-btn:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 960px) {
+  .profile__add-btn {
+      margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .profile__add-btn {
+      margin-top: 36px;
+      margin-left: 0;
+      width: 282px;
+      height: 50px; /**/
+      background: url("../../../images/Rectangle-long.svg") no-repeat;
+  }
+}

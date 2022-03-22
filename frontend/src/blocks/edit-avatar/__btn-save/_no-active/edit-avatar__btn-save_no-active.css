@@ -1,0 +1,18 @@
+.edit-avatar__btn-save_no-active {
+    background-color: white; /**/
+    border: solid 1px;/**/
+    border-radius: 2px;
+    color: #c4c4c4;
+    cursor: default;
+  }
+  
+  @media screen and (max-width: 750px) {
+    .edit-avatar__btn-save_no-active {
+        margin-top: 45px;
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 17px;
+    }
+  }
+  

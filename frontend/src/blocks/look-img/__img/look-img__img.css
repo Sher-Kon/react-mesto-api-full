@@ -1,0 +1,21 @@
+.look-img__img {
+  width: 816px;
+  height: 540px;
+  object-fit: cover;
+  background-size: cover;
+  object-position: center center; /*гориз верт*/
+}
+
+@media screen and (max-width: 960px) {
+  .look-img__img {
+      width: 433px;
+      height: 540px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .look-img__img {
+      width: 240px;
+      height: 299px;
+  }
+}
