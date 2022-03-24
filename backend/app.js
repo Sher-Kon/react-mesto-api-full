@@ -10,7 +10,7 @@ const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err'); // 404
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000 } = process.env; // eslint-disable-line no-unused-vars
 const app = express();
 
 // подключаемся к серверу mongo
@@ -71,6 +71,6 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     });
 });
 
-app.listen(PORT, () => {
-  console.log(`App listening on port ${PORT}`); // eslint-disable-line no-console
-});
+// app.listen(PORT, () => {
+//   console.log(`App listening on port ${PORT}`); // eslint-disable-line no-console
+// });
