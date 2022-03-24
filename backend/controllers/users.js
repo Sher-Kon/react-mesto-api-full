@@ -1,5 +1,6 @@
 // controllers/users.js
 // это файл контроллеров
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
@@ -8,6 +9,8 @@ const BadRequestError = require('../errors/bad-request-err'); // 400
 const UnauthorizedError = require('../errors/unauthorized-err'); // 401
 const NotFoundError = require('../errors/not-found-err'); // 404
 const ConflictError = require('../errors/conflict-err'); // 409
+
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -28,7 +31,11 @@ module.exports.login = (req, res, next) => {
         });
     })
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
+        { expiresIn: '7d' },
+      );
       res.send({ token });// вернём токен
     })
     .catch((err) => {
