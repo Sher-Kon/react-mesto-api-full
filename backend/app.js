@@ -12,6 +12,7 @@ const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err'); // 404
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+const { enableCors, preReqCors } = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env; // eslint-disable-line no-unused-vars
 const app = express();
@@ -22,6 +23,9 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
 app.use(requestLogger); // подключаем логгер запросов до всех обработчиков роутов
+
+app.use(enableCors); // Разрешаем доступ с определённых источников CORS
+app.use(preReqCors); // Обрабатываем предварительные запросы CORS
 
 app.get('/crash-test', () => {
   setTimeout(() => {
@@ -46,8 +50,7 @@ app.post('/signup', celebrate({
   }),
 }), createUser);
 
-// авторизация
-app.use(auth);
+app.use(auth); // авторизация
 
 app.use('/', routerUsers); // запускаем
 app.use('/', routerCards); // запускаем
