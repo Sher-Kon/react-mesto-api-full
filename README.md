@@ -5,4 +5,5 @@
 публичный IP-адрес сервера: 178.154.252.131
 
 домен-адрес: https://domainname.sher-kon.nomoredomains.xyz
+
 домен сервера: api.domainname.sher-kon.nomoredomains.work
