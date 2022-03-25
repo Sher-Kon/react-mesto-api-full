@@ -119,9 +119,8 @@ class Api {
 //--------------------------------------------------------
 // Создадим экземпляр class Api 
 const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-33/',
+    baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work',
     headers: {
-        authorization: '51ca28f6-a002-497b-8233-6c80bd0cac76',
         'Content-Type': 'application/json'
     }
 });
