@@ -63,9 +63,10 @@ class ApiSign {
 }
 
 //--------------------------------------------------------
-// Создадим экземпляр class Api 
+// Создадим экземпляр class ApiSign 
+// РЕГИСТРАЦИЯ, АВТОРИЗАЦИЯ, Проверка валидности токена (JWT)
 const apiSign = new ApiSign({
-    baseUrl: 'https://auth.nomoreparties.co/',
+    baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work',
     headers: {
         "Content-Type": "application/json"
     }
