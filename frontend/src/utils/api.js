@@ -119,7 +119,7 @@ class Api {
 //--------------------------------------------------------
 // Создадим экземпляр class Api 
 const api = new Api({
-    baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work',
+    baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
     headers: {
         'Content-Type': 'application/json'
     }
