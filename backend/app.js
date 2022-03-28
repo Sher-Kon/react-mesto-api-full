@@ -77,6 +77,6 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
     });
 });
 
-// app.listen(PORT, () => {
-//   console.log(`App listening on port ${PORT}`); // eslint-disable-line no-console
-// });
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`); // eslint-disable-line no-console
+});
