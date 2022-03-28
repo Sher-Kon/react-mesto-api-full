@@ -2,9 +2,8 @@
 
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'localhost:3000',
+  'https://domainname.sher-kon.nomoredomains.xyz',
+  'https://api.domainname.sher-kon.nomoredomains.work',
 ];
 
 const enableCors = (req, res, next) => {  // eslint-disable-line
