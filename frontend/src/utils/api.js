@@ -29,6 +29,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
+                console.dir(result); // вывести полученное в консоль
                 return result;
             });
     }
