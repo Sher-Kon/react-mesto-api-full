@@ -14,11 +14,9 @@ const { NODE_ENV, JWT_SECRET = 'some-secret-key' } = process.env;
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
-  console.dir(req.body); // что приходит из базы
 
   User.findOne({ email }).select('+password')
     .then((user) => {
-      console.dir(user);
       if (!user) {
         return Promise.reject(new Error('Неправильные почта (или пароль)'));// Неправильные почта
       }
@@ -74,6 +72,7 @@ module.exports.createUser = (req, res, next) => {
 module.exports.getUserAuth = (req, res, next) => {
   User.findById(req.user._id)// запрос одного
     .then((users) => {
+      console.dir(users);
       if (!users) {
         throw new NotFoundError('Пользователь с указанным _id не найден');// 404
       } else {
