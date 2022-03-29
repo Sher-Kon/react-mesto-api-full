@@ -10,7 +10,7 @@ const UnauthorizedError = require('../errors/unauthorized-err'); // 401
 const NotFoundError = require('../errors/not-found-err'); // 404
 const ConflictError = require('../errors/conflict-err'); // 409
 
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET = 'some-secret-key' } = process.env;
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
@@ -18,6 +18,7 @@ module.exports.login = (req, res, next) => {
 
   User.findOne({ email }).select('+password')
     .then((user) => {
+      console.dir(user);
       if (!user) {
         return Promise.reject(new Error('Неправильные почта (или пароль)'));// Неправильные почта
       }
@@ -34,7 +35,7 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key',
+        JWT_SECRET,
         { expiresIn: '7d' },
       );
       res.send({ token });// вернём токен
