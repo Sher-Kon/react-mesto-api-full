@@ -14,6 +14,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
+  console.dir(req.body); // что приходит из базы
 
   User.findOne({ email }).select('+password')
     .then((user) => {

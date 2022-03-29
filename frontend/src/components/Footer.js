@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
     return (
         <div className="footer">
-            <p className="footer__copyright">© 2022 mesto   ver 1.11</p>
+            <p className="footer__copyright">© 2022 mesto   ver 1.12</p>
         </div>
     );
 }
