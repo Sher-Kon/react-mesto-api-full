@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/unauthorized-err'); // 401
 
-const { NODE_ENV, JWT_SECRET='some-secret-key' } = process.env;
+const { NODE_ENV, JWT_SECRET = 'some-secret-key' } = process.env; // eslint-disable-line
 
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
@@ -14,7 +14,7 @@ module.exports = (req, res, next) => {
   let payload;
 
   try {
-    payload = jwt.verify(token, JWT_SECRET );
+    payload = jwt.verify(token, JWT_SECRET);
   } catch (err) {
     next(new UnauthorizedError('Необходима авторизация')); // 401 (токен некорректен)
   }
