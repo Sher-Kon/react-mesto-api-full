@@ -80,7 +80,7 @@ module.exports.getUserAuth = (req, res, next) => {
           about: users.about,
           avatar: users.avatar,
           name: users.name,
-          _id: users.id,
+          _id: req.user._id, // _id: users.id,
         });
       }
     })
