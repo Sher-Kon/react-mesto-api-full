@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 const express = require('express');
-var cors = require('cors')
+const cors = require('cors'); // var
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
@@ -13,7 +13,7 @@ const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err'); // 404
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { enableCors, preReqCors } = require('./middlewares/cors');
+// const { enableCors, preReqCors } = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env; // eslint-disable-line no-unused-vars
 const app = express();
