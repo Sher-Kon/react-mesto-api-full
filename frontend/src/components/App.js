@@ -149,6 +149,7 @@ function App() {
       // на авторизацию
       history.push("/sign-in");
       //alert(err)
+      console.dir(err)
     })
   }
   // АВТОРИЗАЦИЯ

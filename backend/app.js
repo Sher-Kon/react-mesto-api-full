@@ -26,15 +26,13 @@ app.use(bodyParser.urlencoded({ extended: true })); // для приёма ве�
 app.use(requestLogger); // подключаем логгер запросов до всех обработчиков роутов
 
 app.use(cors());
-// app.use(enableCors); // Разрешаем доступ с определённых источников CORS
-// app.use(preReqCors); // Обрабатываем предварительные запросы CORS
-
+/*
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-
+*/
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
