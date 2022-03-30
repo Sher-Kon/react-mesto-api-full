@@ -148,8 +148,7 @@ function App() {
       setInfoTooltipOk(false);
       // на авторизацию
       history.push("/sign-in");
-      //alert(err)
-      console.dir(err)
+      alert(err)
     })
   }
   // АВТОРИЗАЦИЯ
@@ -180,7 +179,8 @@ function App() {
         });
       }, 500);
     }).catch((err) => {
-      alert(err)
+    //  alert(err)
+      console.dir(err)
     });
   }
 
