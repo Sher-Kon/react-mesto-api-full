@@ -158,30 +158,37 @@ function App() {
     data.email = email;
     // Запрс на авторизацию получение токена
     apiSign.logo(data).then((dataRet) => {
-      console.log("then");
+      console.dir(dataRet);
+      console.log("then 1");
       let jwt = dataRet.token;
       localStorage.setItem("JWT", jwt);
       setLoggedIn(true);
       setTimeout(() => {
         // Проверка токена
         apiSign.checkToken(jwt).then((dataRet) => {
+          console.dir(dataRet);
+          console.log("then 2 jwt");
           setEmail(dataRet.data.email);
           // Запросы на получение списка карточек и данных профиля
           api.readProfile().then((retUser) => {
+            console.dir(retUser);
+            console.log("then 3 retUser");
             setCurrentUser(retUser)
-          }).catch((err) => alert(err));
+          }).catch((err) => console.log("catch 3"); // alert(err));
           api.getInitialCards().then((retCards) => {
+            console.dir(retCards);
+            console.log("then 4 retCards");
             setCards(retCards)
-          }).catch((err) => alert(err));
+          }).catch((err) => console.log("catch 4");// alert(err));
           // откроем cards
           history.push("/");
         }).catch((err) => {
-          alert(err)
+          console.log("catch 2");// alert(err)
         });
       }, 500);
     }).catch((err) => {
       //  alert(err)
-      console.log("catch");
+      console.log("catch 1");
       console.dir(err);
     });
   }
