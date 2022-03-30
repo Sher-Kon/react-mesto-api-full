@@ -29,7 +29,6 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                debugger;
                 console.log("Получение пользователя!");
                 console.dir(result); // вывести полученное в консоль
                 return result;
