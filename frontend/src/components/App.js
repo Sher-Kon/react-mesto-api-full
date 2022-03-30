@@ -158,6 +158,7 @@ function App() {
     data.email = email;
     // Запрс на авторизацию получение токена
     apiSign.logo(data).then((dataRet) => {
+      console.log("then");
       let jwt = dataRet.token;
       localStorage.setItem("JWT", jwt);
       setLoggedIn(true);
@@ -165,13 +166,13 @@ function App() {
         // Проверка токена
         apiSign.checkToken(jwt).then((dataRet) => {
           setEmail(dataRet.data.email);
-        // Запросы на получение списка карточек и данных профиля
-        api.readProfile().then((retUser) => {
-          setCurrentUser(retUser)
-        }).catch((err) => alert(err));
-        api.getInitialCards().then((retCards) => {
-          setCards(retCards)
-        }).catch((err) => alert(err));
+          // Запросы на получение списка карточек и данных профиля
+          api.readProfile().then((retUser) => {
+            setCurrentUser(retUser)
+          }).catch((err) => alert(err));
+          api.getInitialCards().then((retCards) => {
+            setCards(retCards)
+          }).catch((err) => alert(err));
           // откроем cards
           history.push("/");
         }).catch((err) => {
@@ -179,8 +180,9 @@ function App() {
         });
       }, 500);
     }).catch((err) => {
-    //  alert(err)
-      console.dir(err)
+      //  alert(err)
+      console.log("catch");
+      console.dir(err);
     });
   }
 
