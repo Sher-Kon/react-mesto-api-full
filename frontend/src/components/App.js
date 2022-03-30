@@ -174,16 +174,16 @@ function App() {
             console.dir(retUser);
             console.log("then 3 retUser");
             setCurrentUser(retUser)
-          }).catch((err) => console.log("catch 3"); // alert(err));
+          }).catch((err) => console.log("catch 3")); // alert(err));
           api.getInitialCards().then((retCards) => {
             console.dir(retCards);
             console.log("then 4 retCards");
             setCards(retCards)
-          }).catch((err) => console.log("catch 4");// alert(err));
+          }).catch((err) => console.log("catch 4"));// alert(err));
           // откроем cards
           history.push("/");
         }).catch((err) => {
-          console.log("catch 2");// alert(err)
+          console.log("catch 2") // alert(err)
         });
       }, 500);
     }).catch((err) => {
