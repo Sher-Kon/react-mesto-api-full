@@ -77,10 +77,11 @@ module.exports.getUserAuth = (req, res, next) => {
         throw new NotFoundError('Пользователь с указанным _id не найден');// 404
       } else {
         res.send({
+          name: users.name,
           about: users.about,
           avatar: users.avatar,
-          name: users.name,
           _id: users._id,
+          email: users.email, // очень нужно
         });
       }
     })
