@@ -23,9 +23,15 @@ class Api {
             });
     }
     // прочитать профиль
-    readProfile() {
+    readProfile(JWT) {
         return fetch(this._baseUrl + "users/me", {
-            headers: this._headers
+            // headers: this._headers
+            method: 'GET',
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            }
         })
             .then(this._checkResponse)
             .then((result) => {

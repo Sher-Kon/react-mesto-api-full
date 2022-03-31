@@ -170,8 +170,8 @@ function App() {
           console.dir(dataRet);
           console.log("then 2 jwt");
           setEmail(dataRet.email); // dataRet.data.email
-          // Запросы на получение списка карточек и данных профиля
-          api.readProfile().then((retUser) => {
+          // Запросы на получение данных профиля и списка карточек
+          api.readProfile(jwt).then((retUser) => {
             console.dir(retUser);
             console.log("then 3 retUser");
             setCurrentUser(retUser)
