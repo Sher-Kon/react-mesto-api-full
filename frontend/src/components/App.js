@@ -156,7 +156,6 @@ function App() {
     const data = { password: '', email: '' };
     data.password = password;
     data.email = email;
-    // setEmail(data.email);
     // Запрс на авторизацию получение токена
     apiSign.logo(data).then((dataRet) => {
       console.dir(dataRet);
