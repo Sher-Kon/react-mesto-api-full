@@ -176,7 +176,7 @@ function App() {
             console.log("then 3 retUser");
             setCurrentUser(retUser)
           }) // .catch((err) => console.log("catch 3")); // alert(err));
-          api.getInitialCards().then((retCards) => {
+          api.getInitialCards(jwt).then((retCards) => {
             console.dir(retCards);
             console.log("then 4 retCards");
             setCards(retCards)

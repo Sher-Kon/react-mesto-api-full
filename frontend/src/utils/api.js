@@ -13,9 +13,15 @@ class Api {
     }
 
     // прочитать карточки
-    getInitialCards() {
+    getInitialCards(JWT) {
         return fetch(this._baseUrl + "cards", {
-            headers: this._headers
+            //headers: this._headers
+            method: 'GET',
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            }
         })
             .then(this._checkResponse)
             .then((result) => {
