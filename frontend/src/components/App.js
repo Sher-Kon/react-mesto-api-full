@@ -32,7 +32,7 @@ function App() {
     const jwt = localStorage.getItem("JWT");
     if (jwt) {
       apiSign.checkToken(jwt).then((dataRet) => {
-        setEmail(dataRet.data.email); //dataRet.data.email
+        setEmail(dataRet.email); //dataRet.data.email
         setLoggedIn(true);
         // Запросы на получение списка карточек и данных профиля
         api.readProfile().then((retUser) => {
@@ -156,7 +156,7 @@ function App() {
     const data = { password: '', email: '' };
     data.password = password;
     data.email = email;
-    setEmail(data.email);
+    // setEmail(data.email);
     // Запрс на авторизацию получение токена
     apiSign.logo(data).then((dataRet) => {
       console.dir(dataRet);
@@ -169,7 +169,7 @@ function App() {
         apiSign.checkToken(jwt).then((dataRet) => {
           console.dir(dataRet);
           console.log("then 2 jwt");
-          // setEmail(dataRet.data.email); // dataRet.data.email
+          setEmail(dataRet.email); // dataRet.data.email
           // Запросы на получение списка карточек и данных профиля
           api.readProfile().then((retUser) => {
             console.dir(retUser);
