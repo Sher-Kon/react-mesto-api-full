@@ -2,7 +2,7 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import InputsAddCard from './InputsAddCard';
 
-function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
+function AddPlacePopup({ isOpen, onClose, token, onAddPlace }) {
 
     const cardLinkRef = React.useRef(); // записываем объект, возвращаемый хуком, в переменную
     const cardNameRef = React.useRef(); // записываем объект, возвращаемый хуком, в переменную
@@ -16,10 +16,13 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
         // Запрещаем браузеру переходить по адресу формы
         e.preventDefault();
         // Передаём значение инпута во внешний обработчик
-        onAddPlace({
+        onAddPlace(
+            {
             name: cardNameRef.current.value/* Значение инпута, полученное с помощью рефа */,
             link: cardLinkRef.current.value/* Значение инпута, полученное с помощью рефа */,
-        });
+            },
+            token
+        );
     }
 
     return (

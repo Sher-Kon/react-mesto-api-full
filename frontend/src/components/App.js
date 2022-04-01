@@ -129,10 +129,11 @@ function App() {
     }).catch((err) => alert(err));
   }
 
-  function handleAddPlace(card) {
+  function handleAddPlace(card, token) {
     console.log("Добавили карточку");
     console.dir(card);
-    api.writeCard(card, card.token).then((newCard) => {
+    console.dir(token);
+    api.writeCard(card, token).then((newCard) => {
       setCards([newCard, ...cards]);
       setAddPlacePopupOpen(false);
     }).catch((err) => alert(err));
@@ -263,6 +264,7 @@ function App() {
             isOpen={isAddPlacePopupOpen}
             onClose={closeAllPopups}
             onAddPlace={handleAddPlace}
+            token={isToken}
           />
 
           <ConfirmPopup
