@@ -2,7 +2,6 @@
 class Api {
     constructor(config) {
         this._baseUrl = config.baseUrl;
-        // this._headers = config.headers;
     }
 
     _checkResponse(res) {
@@ -43,7 +42,7 @@ class Api {
             });
     }
     // сохранить профиль
-    writeProfile(data,JWT) {
+    writeProfile(data, JWT) {
         return fetch(this._baseUrl + "users/me", {
             method: 'PATCH',
             headers:
@@ -62,7 +61,7 @@ class Api {
             });
     }
     // добавить карточку
-    writeCard(data,JWT) {
+    writeCard(data, JWT) {
         return fetch(this._baseUrl + "cards", {
             method: 'POST',
             headers:
@@ -81,7 +80,7 @@ class Api {
             });
     }
     // удалить карточку
-    deleteCard(cardId,JWT) {
+    deleteCard(cardId, JWT) {
         return fetch(this._baseUrl + "cards/" + cardId, {
             method: 'DELETE',
             headers:
@@ -96,7 +95,7 @@ class Api {
             });
     }
     // сохранить аватар
-    writeAvatar(linkAvatar,JWT) {
+    writeAvatar(linkAvatar, JWT) {
         return fetch(this._baseUrl + "users/me/avatar", {
             method: 'PATCH',
             headers:
@@ -114,7 +113,7 @@ class Api {
             });
     }
     // добавить лайк
-    setLike(cardId,JWT) {
+    setLike(cardId, JWT) {
         return fetch(this._baseUrl + "cards/" + cardId + "/likes", {
             method: 'PUT',
             headers:
@@ -129,7 +128,7 @@ class Api {
             });
     }
     // удалить лайк
-    delLike(cardId,JWT) {
+    delLike(cardId, JWT) {
         return fetch(this._baseUrl + "cards/" + cardId + "/likes", {
             method: 'DELETE',
             headers:
@@ -155,9 +154,6 @@ class Api {
 const api = new Api({
     baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
     // baseUrl: 'http://localhost:3001/',
-    //headers: {
-    //    'Content-Type': 'application/json'
-    //}
 });
 
 export default api;

@@ -31,11 +31,11 @@ function App() {
 
   React.useEffect(() => {
     // Проверка токена
-    const jwt = localStorage.getItem("JWT"); //  была внутренняя переменная const
+    const jwt = localStorage.getItem("JWT");
     if (jwt) {
       apiSign.checkToken(jwt).then((dataRet) => {
         setToken(jwt); // сделать токен общедоступным
-        setEmail(dataRet.email); //dataRet.data.email
+        setEmail(dataRet.email);
         setLoggedIn(true);
         // Запросы на получение данных профиля и списка карточек
         api.readProfile(jwt).then((retUser) => {
@@ -52,10 +52,6 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i === currentUser._id);// i._id ===
-    // console.log("лайкнули");
-    // console.dir(card);
-    // console.log("мой id:");
-    // console.dir(currentUser._id);
     isLiked
       ? api.delLike(card._id, card.token).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
@@ -74,17 +70,12 @@ function App() {
   const [delCard, setDelCard] = React.useState({ _id: '', token: '' });
 
   function handleCardDelete(card) {
-    // console.log("handleCardDelete");
-    // console.dir(card);
     setDelCard(card);
     setConfirmPopupOpen(true);
   }
 
   function handleConfirm() {
-    // console.dir(delCard);
     api.deleteCard(delCard._id, delCard.token).then(() => {
-    // console.log("Удаляем карточку");
-    // console.dir(delCard._id);
     const newCards = cards.filter(card => card._id !== delCard._id);
       setCards(newCards);
       setConfirmPopupOpen(false);
@@ -121,8 +112,6 @@ function App() {
     const data = { name: '', about: '' };
     data.name = name;
     data.about = about;
-    // console.log("Сохранили профиль");
-    // console.dir(token);
     api.writeProfile(data, token).then((dataRet) => {
       setCurrentUser(dataRet);
       setEditProfilePopupOpen(false);
@@ -130,8 +119,6 @@ function App() {
   }
 
   function handleUpdateAvatar(link) {
-    // console.log("Сохранили аватар");
-    // console.dir(link);
     api.writeAvatar(link.avatar, link.token).then((dataRet) => {
       setCurrentUser(dataRet);
       setEditAvatarPopupOpen(false);
@@ -139,9 +126,6 @@ function App() {
   }
 
   function handleAddPlace(card, token) {
-    // console.log("Добавили карточку");
-    // console.dir(card);
-    // console.dir(token);
     api.writeCard(card, token).then((newCard) => {
       setCards([newCard, ...cards]);
       setAddPlacePopupOpen(false);
@@ -177,8 +161,6 @@ function App() {
     data.email = email;
     // Запрс на авторизацию получение токена
     apiSign.logo(data).then((dataRet) => {
-      // console.dir(dataRet);
-      // console.log("then 1");
       let jwt = dataRet.token;
       setToken(jwt);
       localStorage.setItem("JWT", jwt);
@@ -186,35 +168,24 @@ function App() {
       setTimeout(() => {
         // Проверка токена
         apiSign.checkToken(jwt).then((dataRet) => {
-          // console.dir(dataRet);
-          // console.log("then 2 jwt");
-          setEmail(dataRet.email); // dataRet.data.email
+          setEmail(dataRet.email);
           // Запросы на получение данных профиля и списка карточек
           api.readProfile(jwt).then((retUser) => {
-            // console.dir(retUser);
-            // console.log("then 3 retUser");
             setCurrentUser(retUser)
-          }) // .catch((err) => console.log("catch 3")); // alert(err));
+          })
           api.getInitialCards(jwt).then((retCards) => {
-            // console.dir(retCards.cards);
-            // console.log("then 4 retCards");
             setCards(retCards.cards)
-          }) // .catch((err) => console.log("catch 4"));// alert(err));
+          })
           // откроем cards
           history.push("/");
-        }) // .catch((err) => {
-          // console.log("catch 2") // alert(err)
-         // });
+        })
       }, 500);
     }).catch((err) => {
         alert(err)
-      // console.log("catch 1");
-      // console.dir(err);
     });
   }
 
   function onSignOut() {
-    //console.log("Click EXIT");
     setLoggedIn(false);
     localStorage.removeItem("JWT");
     history.push("/sign-in");
