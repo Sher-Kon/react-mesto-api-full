@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
-function ConfirmPopup({ isOpen, onClose, onConfirm, token }) {
+function ConfirmPopup({ isOpen, onClose, onConfirm }) {
 
     function handleSubmit(e) {
         // Запрещаем браузеру переходить по адресу формы
@@ -18,7 +18,6 @@ function ConfirmPopup({ isOpen, onClose, onConfirm, token }) {
             isOpen={isOpen}
             onClose={onClose}
             onSubmit={handleSubmit}
-            token={token}
         >
         </PopupWithForm>
 

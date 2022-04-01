@@ -77,6 +77,7 @@ function App() {
     console.log("handleCardDelete");
     console.dir(card);
     setDelCard(card);
+    console.dir(delCard);
     setConfirmPopupOpen(true);
   }
 
@@ -275,7 +276,6 @@ function App() {
             isOpen={isConfirmPopupOpen}
             onClose={closeAllPopups}
             onConfirm={handleConfirm}
-            token={isToken}
           />
 
           <ImagePopup
