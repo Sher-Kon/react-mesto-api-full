@@ -82,7 +82,7 @@ function App() {
 
   function handleConfirm() {
     console.dir(delCard);
-    api.deleteCard(delCard._id).then(() => {
+    api.deleteCard(delCard._id, delCard.token).then(() => {
     console.log("Удаляем карточку");
     console.dir(delCard._id);
     const newCards = cards.filter(card => card._id !== delCard._id);
