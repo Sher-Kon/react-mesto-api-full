@@ -121,8 +121,8 @@ function App() {
     const data = { name: '', about: '' };
     data.name = name;
     data.about = about;
-    console.log("Сохранили профиль");
-    console.dir(token);
+    // console.log("Сохранили профиль");
+    // console.dir(token);
     api.writeProfile(data, token).then((dataRet) => {
       setCurrentUser(dataRet);
       setEditProfilePopupOpen(false);

@@ -16,11 +16,12 @@ class Api {
     getInitialCards(JWT) {
         return fetch(this._baseUrl + "cards", {
             method: 'GET',
-            headers:
-            {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${JWT}`
-            }
+            headers: this._headers
+            //headers:
+            //{
+            //    "Content-Type": "application/json",
+            //    "Authorization": `Bearer ${JWT}`
+            //}
         })
             .then(this._checkResponse)
             .then((result) => {
@@ -50,11 +51,12 @@ class Api {
     writeProfile(data,JWT) {
         return fetch(this._baseUrl + "users/me", {
             method: 'PATCH',
-            headers:
-            {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${JWT}`
-            },
+            headers: this._headers,
+            //headers:
+            //{
+            //    "Content-Type": "application/json",
+            //    "Authorization": `Bearer ${JWT}`
+            //},
             body: JSON.stringify({
                 name: data.name,
                 about: data.about
@@ -164,7 +166,8 @@ const api = new Api({
     baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
     // baseUrl: 'http://localhost:3001/',
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${JWT}`
     }
 });
 
