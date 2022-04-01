@@ -83,6 +83,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
+                console.log("api: Добавили карточку");
                 return result;
             });
     }
@@ -125,7 +126,6 @@ class Api {
     setLike(cardId,JWT) {
         return fetch(this._baseUrl + "cards/" + cardId + "/likes", {
             method: 'PUT',
-            //headers: this._headers
             headers:
             {
                 "Content-Type": "application/json",
@@ -134,7 +134,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("api: Добавили лайк");
+                // console.log("api: Добавили лайк");
                 return result;
             });
     }
@@ -142,7 +142,6 @@ class Api {
     delLike(cardId,JWT) {
         return fetch(this._baseUrl + "cards/" + cardId + "/likes", {
             method: 'DELETE',
-            // headers: this._headers
             headers:
             {
                 "Content-Type": "application/json",
@@ -151,7 +150,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("api: Удалили лайк");
+                // console.log("api: Удалили лайк");
                 return result;
             });
     }
