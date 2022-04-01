@@ -15,12 +15,11 @@ class Api {
     // прочитать карточки
     getInitialCards(JWT) {
         return fetch(this._baseUrl + "cards", {
-            //headers: this._headers
             method: 'GET',
             headers:
             {
                 "Content-Type": "application/json",
-                //"Authorization": `Bearer ${JWT}`
+                "Authorization": `Bearer ${JWT}`
             }
         })
             .then(this._checkResponse)
@@ -33,7 +32,6 @@ class Api {
     // прочитать профиль
     readProfile(JWT) {
         return fetch(this._baseUrl + "users/me", {
-            // headers: this._headers
             method: 'GET',
             headers:
             {
@@ -49,10 +47,15 @@ class Api {
             });
     }
     // сохранить профиль
-    writeProfile(data) {
+    writeProfile(data,JWT) {
         return fetch(this._baseUrl + "users/me", {
             method: 'PATCH',
-            headers: this._headers,
+            // headers: this._headers,
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            },
             body: JSON.stringify({
                 name: data.name,
                 about: data.about
@@ -64,10 +67,15 @@ class Api {
             });
     }
     // сохранить карточку
-    writeCard(data) {
+    writeCard(data,JWT) {
         return fetch(this._baseUrl + "cards", {
             method: 'POST',
-            headers: this._headers,
+            //headers: this._headers,
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            },
             body: JSON.stringify({
                 name: data.name,
                 link: data.link
@@ -79,10 +87,15 @@ class Api {
             });
     }
     // удалить карточку
-    deleteCard(cardId) {
+    deleteCard(cardId,JWT) {
         return fetch(this._baseUrl + "cards/" + cardId, {
             method: 'DELETE',
-            headers: this._headers
+            // headers: this._headers
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            }
         })
             .then(this._checkResponse)
             .then((result) => {
@@ -90,10 +103,15 @@ class Api {
             });
     }
     // сохранить аватар
-    writeAvatar(linkAvatar) {
+    writeAvatar(linkAvatar,JWT) {
         return fetch(this._baseUrl + "users/me/avatar", {
             method: 'PATCH',
-            headers: this._headers,
+            //headers: this._headers,
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            },
             body: JSON.stringify({
                 avatar: linkAvatar
             })
@@ -104,10 +122,15 @@ class Api {
             });
     }
     // добавить лайк
-    setLike(cardId) {
+    setLike(cardId,JWT) {
         return fetch(this._baseUrl + "cards/" + cardId + "/likes", {
             method: 'PUT',
-            headers: this._headers
+            //headers: this._headers
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            }
         })
             .then(this._checkResponse)
             .then((result) => {
@@ -115,10 +138,15 @@ class Api {
             });
     }
     // удалить лайк
-    delLike(cardId) {
+    delLike(cardId,JWT) {
         return fetch(this._baseUrl + "cards/" + cardId + "/likes", {
             method: 'DELETE',
-            headers: this._headers
+            // headers: this._headers
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            }
         })
             .then(this._checkResponse)
             .then((result) => {
@@ -135,8 +163,8 @@ class Api {
 //--------------------------------------------------------
 // Создадим экземпляр class Api 
 const api = new Api({
-    baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
-    // baseUrl: 'http://localhost:3001/',
+    // baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
+    baseUrl: 'http://localhost:3001/',
     headers: {
         'Content-Type': 'application/json'
     }

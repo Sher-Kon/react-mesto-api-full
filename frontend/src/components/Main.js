@@ -10,7 +10,7 @@ import Footer from './Footer';
 
 
 function Main({ cards, onCardLike, onCardDelete, onEditAvatar, 
-                onEditProfile, onAddPlace, onCardClick, email, onExit }) {
+                onEditProfile, onAddPlace, onCardClick, email, token, onExit }) {
 
     const currentUser = React.useContext(CurrentUserContext);
 
@@ -41,6 +41,7 @@ function Main({ cards, onCardLike, onCardDelete, onEditAvatar,
                     onCardClick={onCardClick}
                     onCardLike={onCardLike}
                     onCardDelete={onCardDelete}
+                    token={token}
                 />))}
             </div>
             <Footer />

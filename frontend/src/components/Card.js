@@ -1,7 +1,7 @@
 import React from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Card({ _id, owner, link, name, likes, onCardClick, onCardLike, onCardDelete }) {
+function Card({ _id, owner, link, name, likes, token, onCardClick, onCardLike, onCardDelete }) {
     // Подписываемся на контекст TranslationContext
     const currentUser = React.useContext(CurrentUserContext);
 
@@ -10,7 +10,7 @@ function Card({ _id, owner, link, name, likes, onCardClick, onCardLike, onCardDe
     // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
     const isLiked = likes.some(i => i._id === currentUser._id);
 
-    const card = { name, link, likes, _id };
+    const card = { name, link, likes, _id, token };//сюда бы добавить token(jwt)
     function handleClick() {
         onCardClick(card);//link
     }

@@ -27,19 +27,22 @@ function App() {
   const [cards, setCards] = React.useState([]);
   const [currentUser, setCurrentUser] = React.useState({});
 
+  const [isToken, setToken] = React.useState("");
+
   React.useEffect(() => {
     // Проверка токена
-    const jwt = localStorage.getItem("JWT");
+    const jwt = localStorage.getItem("JWT"); //  была внутренняя переменная const
     if (jwt) {
+      setToken(jwt); // сделать токен общедоступным
       apiSign.checkToken(jwt).then((dataRet) => {
         setEmail(dataRet.email); //dataRet.data.email
         setLoggedIn(true);
-        // Запросы на получение списка карточек и данных профиля
-        api.readProfile().then((retUser) => {
+        // Запросы на получение данных профиля и списка карточек
+        api.readProfile(jwt).then((retUser) => {
           setCurrentUser(retUser)
         }).catch((err) => alert(err));
-        api.getInitialCards().then((retCards) => {
-          setCards(retCards)
+        api.getInitialCards(jwt).then((retCards) => {
+          setCards(retCards.cards)
         }).catch((err) => alert(err));
         // откроем cards
         history.push("/");
@@ -49,11 +52,12 @@ function App() {
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
+    console.log("лайкнули");
     isLiked
-      ? api.delLike(card._id).then((newCard) => {
+      ? api.delLike(card._id, card.token).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       }).catch((err) => alert(err))
-      : api.setLike(card._id).then((newCard) => {
+      : api.setLike(card._id, card.token).then((newCard) => {
         setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       }).catch((err) => alert(err));
   }
@@ -158,27 +162,28 @@ function App() {
     data.email = email;
     // Запрс на авторизацию получение токена
     apiSign.logo(data).then((dataRet) => {
-      console.dir(dataRet);
-      console.log("then 1");
+      // console.dir(dataRet);
+      // console.log("then 1");
       let jwt = dataRet.token;
+      setToken(jwt);
       localStorage.setItem("JWT", jwt);
       setLoggedIn(true);
       setTimeout(() => {
         // Проверка токена
         apiSign.checkToken(jwt).then((dataRet) => {
-          console.dir(dataRet);
-          console.log("then 2 jwt");
+          // console.dir(dataRet);
+          // console.log("then 2 jwt");
           setEmail(dataRet.email); // dataRet.data.email
           // Запросы на получение данных профиля и списка карточек
           api.readProfile(jwt).then((retUser) => {
-            console.dir(retUser);
-            console.log("then 3 retUser");
+            // console.dir(retUser);
+            // console.log("then 3 retUser");
             setCurrentUser(retUser)
           }) // .catch((err) => console.log("catch 3")); // alert(err));
           api.getInitialCards(jwt).then((retCards) => {
-            console.dir(retCards);
-            console.log("then 4 retCards");
-            setCards(retCards)
+            // console.dir(retCards.cards);
+            // console.log("then 4 retCards");
+            setCards(retCards.cards)
           }) // .catch((err) => console.log("catch 4"));// alert(err));
           // откроем cards
           history.push("/");
@@ -187,9 +192,9 @@ function App() {
          // });
       }, 500);
     }).catch((err) => {
-      //  alert(err)
-      console.log("catch 1");
-      console.dir(err);
+        alert(err)
+      // console.log("catch 1");
+      // console.dir(err);
     });
   }
 
@@ -218,6 +223,7 @@ function App() {
                 onAddPlace={handleAddPlaceClick}
                 onCardClick={handleCardClick}
                 email={isEmall}
+                token={isToken}
                 onExit={onSignOut}
               />
               <Route path="/sign-up">
