@@ -66,7 +66,7 @@ class Api {
                 return result;
             });
     }
-    // сохранить карточку
+    // добавить карточку
     writeCard(data,JWT) {
         return fetch(this._baseUrl + "cards", {
             method: 'POST',

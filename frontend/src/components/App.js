@@ -130,6 +130,8 @@ function App() {
   }
 
   function handleAddPlace(card) {
+    console.log("Добавили карточку");
+    console.dir(card);
     api.writeCard(card, card.token).then((newCard) => {
       setCards([newCard, ...cards]);
       setAddPlacePopupOpen(false);

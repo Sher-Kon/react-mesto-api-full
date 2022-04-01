@@ -12,7 +12,7 @@ function Card({ _id, owner, link, name, likes, token, onCardClick, onCardLike, o
 
     const card = { name, link, likes, _id, token };//сюда бы добавить token(jwt)
     function handleClick() {
-        onCardClick(card);//link
+        onCardClick(card);
     }
 
     function handleLikeClick() {
