@@ -71,17 +71,17 @@ function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isConfirmPopupOpen, setConfirmPopupOpen] = React.useState(false);
-  const [delCard, setDelCard] = React.useState({ title: '', link: '' });
+  const [delCard, setDelCard] = React.useState({ title: '', link: '', token: '' });
 
   function handleCardDelete(card) {
     console.log("handleCardDelete");
     console.dir(card);
     setDelCard(card);
-    console.dir(delCard);
     setConfirmPopupOpen(true);
   }
 
   function handleConfirm() {
+    console.dir(delCard);
     api.deleteCard(delCard._id).then(() => {
     console.log("Удаляем карточку");
     console.dir(delCard._id);
