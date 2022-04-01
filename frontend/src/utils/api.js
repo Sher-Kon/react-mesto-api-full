@@ -134,7 +134,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("Добавили лайк -*-");
+                console.log("api: Добавили лайк");
                 return result;
             });
     }
@@ -151,7 +151,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("Удалили лайк - -");
+                console.log("api: Удалили лайк");
                 return result;
             });
     }
