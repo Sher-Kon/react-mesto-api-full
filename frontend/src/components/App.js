@@ -117,11 +117,13 @@ function App() {
     setSelectedCard(card);
   }
 
-  function handleUpdateUser({ name, about }) {
+  function handleUpdateUser({ name, about, token }) {
     const data = { name: '', about: '' };
     data.name = name;
     data.about = about;
-    api.writeProfile(data).then((dataRet) => {
+    console.log("Сохранили профиль");
+    console.dir(token);
+    api.writeProfile(data, token).then((dataRet) => {
       setCurrentUser(dataRet);
       setEditProfilePopupOpen(false);
     }).catch((err) => alert(err));
@@ -259,6 +261,7 @@ function App() {
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
             onUpdateUser={handleUpdateUser}
+            token={isToken}
           />
 
           <EditAvatarPopup

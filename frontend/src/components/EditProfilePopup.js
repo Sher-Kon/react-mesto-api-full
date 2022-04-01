@@ -4,7 +4,7 @@ import InputsEditProfile from './InputsEditProfile';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 
-function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
+function EditProfilePopup({ isOpen, onClose, onUpdateUser, token }) {
 
     const [name, setName] = React.useState("");
     const [description, setDescription] = React.useState("");
@@ -29,6 +29,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
         onUpdateUser({
             name: name,
             about: description,
+            token: token
         });
     }
 

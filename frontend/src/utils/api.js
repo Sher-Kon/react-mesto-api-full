@@ -50,7 +50,6 @@ class Api {
     writeProfile(data,JWT) {
         return fetch(this._baseUrl + "users/me", {
             method: 'PATCH',
-            // headers: this._headers,
             headers:
             {
                 "Content-Type": "application/json",
