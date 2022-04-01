@@ -24,8 +24,8 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("Получение карточек!");
-                //console.dir(result); // вывести полученное в консоль
+                // console.log("Получение карточек!");
+                // console.dir(result); // вывести полученное в консоль
                 return result;
             });
     }
@@ -41,7 +41,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("Получение пользователя!");
+                // console.log("Получение пользователя!");
                 //console.dir(result); // вывести полученное в консоль
                 return result;
             });
@@ -134,6 +134,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
+                console.log("Добавили лайк -*-");
                 return result;
             });
     }
@@ -150,6 +151,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
+                console.log("Удалили лайк - -");
                 return result;
             });
     }
