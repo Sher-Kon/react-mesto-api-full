@@ -79,7 +79,7 @@ function App() {
   }
 
   function handleConfirm() {
-    api.deleteCard(delCard._id, card.token).then(() => {
+    api.deleteCard(delCard._id, token).then(() => {
     console.log("Удаляем карточку");
     console.dir(delCard._id);
     const newCards = cards.filter(card => card._id !== delCard._id);
@@ -273,6 +273,7 @@ function App() {
             isOpen={isConfirmPopupOpen}
             onClose={closeAllPopups}
             onConfirm={handleConfirm}
+            token={isToken}
           />
 
           <ImagePopup
