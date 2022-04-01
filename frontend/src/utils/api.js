@@ -70,7 +70,6 @@ class Api {
     writeCard(data,JWT) {
         return fetch(this._baseUrl + "cards", {
             method: 'POST',
-            //headers: this._headers,
             headers:
             {
                 "Content-Type": "application/json",
@@ -83,7 +82,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("api: Добавили карточку");
+                // console.log("api: Добавили карточку");
                 return result;
             });
     }

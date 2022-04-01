@@ -6,7 +6,7 @@ function Card({ _id, owner, link, name, likes, token, onCardClick, onCardLike, o
     const currentUser = React.useContext(CurrentUserContext);
 
     //для отрисовки ведра oпределяем, являемся ли мы владельцем текущей карточки
-    const isOwn = owner._id === currentUser._id;
+    const isOwn = owner === currentUser._id; // owner._id ===
     // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
     const isLiked = likes.some(i => i === currentUser._id);// i._id === было
 
