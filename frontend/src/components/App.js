@@ -74,12 +74,14 @@ function App() {
   const [delCard, setDelCard] = React.useState({ title: '', link: '' });
 
   function handleCardDelete(card) {
+    console.log("handleCardDelete");
+    console.dir(card);
     setDelCard(card);
     setConfirmPopupOpen(true);
   }
 
   function handleConfirm() {
-    api.deleteCard(delCard._id, token).then(() => {
+    api.deleteCard(delCard._id).then(() => {
     console.log("Удаляем карточку");
     console.dir(delCard._id);
     const newCards = cards.filter(card => card._id !== delCard._id);
