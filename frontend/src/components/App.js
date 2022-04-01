@@ -33,8 +33,8 @@ function App() {
     // Проверка токена
     const jwt = localStorage.getItem("JWT"); //  была внутренняя переменная const
     if (jwt) {
-      setToken(jwt); // сделать токен общедоступным
       apiSign.checkToken(jwt).then((dataRet) => {
+        setToken(jwt); // сделать токен общедоступным
         setEmail(dataRet.email); //dataRet.data.email
         setLoggedIn(true);
         // Запросы на получение данных профиля и списка карточек
