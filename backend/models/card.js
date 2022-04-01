@@ -19,11 +19,14 @@ const cardSchema = new mongoose.Schema({
       message: 'Поле "link" должно быть валидным URL-адресом',
     },
   },
+
   owner: { //  ссылка на модель автора карточки:
     type: mongoose.Types.ObjectId, // String, // это ObjectId
     ref: 'user',
     required: true, // обязательное поле
   },
+  // для populate() - по ref обязателен user
+
   likes: [// список лайкнувших пост пользователей
     { // по умолчанию — пустой массив (поле default)
       type: mongoose.Types.ObjectId,

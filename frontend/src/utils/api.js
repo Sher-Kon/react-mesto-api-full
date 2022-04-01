@@ -20,7 +20,7 @@ class Api {
             headers:
             {
                 "Content-Type": "application/json",
-                "Authorization": `Bearer ${JWT}`
+                //"Authorization": `Bearer ${JWT}`
             }
         })
             .then(this._checkResponse)
@@ -135,6 +135,7 @@ class Api {
 // Создадим экземпляр class Api 
 const api = new Api({
     baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
+    // baseUrl: 'http://localhost:3001/',
     headers: {
         'Content-Type': 'application/json'
     }

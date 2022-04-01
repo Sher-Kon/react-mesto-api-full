@@ -15,7 +15,8 @@ const NotFoundError = require('./errors/not-found-err'); // 404
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 // const { enableCors, preReqCors } = require('./middlewares/cors');
 
-const { PORT = 3000 } = process.env; // eslint-disable-line no-unused-vars
+const { PORT = 3000 } = process.env;
+// const { PORT = 3001 } = process.env; // eslint-disable-line no-unused-vars
 const app = express();
 
 // подключаемся к серверу mongo
