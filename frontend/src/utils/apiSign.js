@@ -66,8 +66,8 @@ class ApiSign {
 // Создадим экземпляр class ApiSign 
 // РЕГИСТРАЦИЯ, АВТОРИЗАЦИЯ, Проверка валидности токена (JWT)
 const apiSign = new ApiSign({
-    // baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
-    baseUrl: 'http://localhost:3001/',
+    baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
+    // baseUrl: 'http://localhost:3001/',
     headers: {
         "Content-Type": "application/json"
     }
