@@ -51,17 +51,17 @@ function App() {
   }, []);
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some(i => i === currentUser._id);//i._id
+    const isLiked = card.likes.some(i => i === currentUser._id);// i._id ===
     console.log("лайкнули");
     console.dir(card);
     console.log("мой id:");
     console.dir(currentUser._id);
     isLiked
       ? api.delLike(card._id, card.token).then((newCard) => {
-        setCards((state) => state.map((c) => c === card._id ? newCard : c));//c._id ===
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       }).catch((err) => alert(err))
       : api.setLike(card._id, card.token).then((newCard) => {
-        setCards((state) => state.map((c) => c === card._id ? newCard : c));//c._id ===
+        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
       }).catch((err) => alert(err));
   }
 

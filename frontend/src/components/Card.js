@@ -8,7 +8,7 @@ function Card({ _id, owner, link, name, likes, token, onCardClick, onCardLike, o
     //для отрисовки ведра oпределяем, являемся ли мы владельцем текущей карточки
     const isOwn = owner._id === currentUser._id;
     // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
-    const isLiked = likes.some(i => i._id === currentUser._id);
+    const isLiked = likes.some(i => i === currentUser._id);// i._id === было
 
     const card = { name, link, likes, _id, token };//сюда бы добавить token(jwt)
     function handleClick() {
