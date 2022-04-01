@@ -128,8 +128,8 @@ function App() {
   }
 
   function handleUpdateAvatar(link) {
-    console.log("Сохранили аватар");
-    console.dir(link);
+    // console.log("Сохранили аватар");
+    // console.dir(link);
     api.writeAvatar(link.avatar, link.token).then((dataRet) => {
       setCurrentUser(dataRet);
       setEditAvatarPopupOpen(false);

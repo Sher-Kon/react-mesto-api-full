@@ -105,7 +105,6 @@ class Api {
     writeAvatar(linkAvatar,JWT) {
         return fetch(this._baseUrl + "users/me/avatar", {
             method: 'PATCH',
-            //headers: this._headers,
             headers:
             {
                 "Content-Type": "application/json",
@@ -117,7 +116,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                console.log("api: сохранили аватар");
+                // console.log("api: сохранили аватар");
                 return result;
             });
     }
