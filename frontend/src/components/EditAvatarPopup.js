@@ -2,7 +2,7 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 import InputsAvatar from './InputsAvatar';
 
-function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
+function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar, token }) {
 
     const avatarRef = React.useRef(); // записываем объект, возвращаемый хуком, в переменную
 
@@ -12,6 +12,7 @@ function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
         // Передаём значение инпута во внешний обработчик
         onUpdateAvatar({
             avatar: avatarRef.current.value/* Значение инпута, полученное с помощью рефа */,
+            token: token
         });
     }
 

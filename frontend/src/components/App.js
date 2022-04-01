@@ -128,7 +128,9 @@ function App() {
   }
 
   function handleUpdateAvatar(link) {
-    api.writeAvatar(link.avatar).then((dataRet) => {
+    console.log("Сохранили аватар");
+    console.dir(link);
+    api.writeAvatar(link.avatar, link.token).then((dataRet) => {
       setCurrentUser(dataRet);
       setEditAvatarPopupOpen(false);
     }).catch((err) => alert(err));
@@ -263,6 +265,7 @@ function App() {
             isOpen={isEditAvatarPopupOpen}
             onClose={closeAllPopups}
             onUpdateAvatar={handleUpdateAvatar}
+            token={isToken}
           />
 
           <AddPlacePopup

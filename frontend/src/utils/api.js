@@ -117,6 +117,7 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
+                console.log("api: сохранили аватар");
                 return result;
             });
     }
