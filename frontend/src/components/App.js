@@ -79,8 +79,10 @@ function App() {
   }
 
   function handleConfirm() {
-    api.deleteCard(delCard._id).then(() => {
-      const newCards = cards.filter(card => card._id !== delCard._id);
+    api.deleteCard(delCard._id, card.token).then(() => {
+    console.log("Удаляем карточку");
+    console.dir(delCard._id);
+    const newCards = cards.filter(card => card._id !== delCard._id);
       setCards(newCards);
       setConfirmPopupOpen(false);
     }).catch((err) => alert(err));
