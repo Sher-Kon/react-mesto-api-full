@@ -13,7 +13,6 @@ const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/not-found-err'); // 404
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-// const { enableCors, preReqCors } = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env; // eslint-disable-line no-unused-vars
 // const { PORT = 3001 } = process.env; // eslint-disable-line no-unused-vars
@@ -27,13 +26,13 @@ app.use(bodyParser.urlencoded({ extended: true })); // для приёма ве�
 app.use(requestLogger); // подключаем логгер запросов до всех обработчиков роутов
 
 app.use(cors());
-/*
+
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
-*/
+
 app.post('/signin', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),

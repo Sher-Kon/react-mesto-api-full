@@ -44,7 +44,6 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.createUser = (req, res, next) => {
-  // const { name, about, avatar, email } = req.body;
   bcrypt.hash(req.body.password, 10)
     .then((hash) => User.create({
       name: req.body.name,
@@ -60,7 +59,6 @@ module.exports.createUser = (req, res, next) => {
         _id: user.id,
       })))
     .catch((err) => {
-      // console.dir(err.name);
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при создании пользователя')); // 400
       } else if (err.name === 'MongoServerError' && err.code === 11000) {
@@ -72,7 +70,6 @@ module.exports.createUser = (req, res, next) => {
 module.exports.getUserAuth = (req, res, next) => {
   User.findById(req.user._id)// запрос одного
     .then((users) => {
-      // console.dir(users); // eslint-disable-line
       if (!users) {
         throw new NotFoundError('Пользователь с указанным _id не найден');// 404
       } else {
@@ -86,7 +83,6 @@ module.exports.getUserAuth = (req, res, next) => {
       }
     })
     .catch((err) => {
-      // console.dir(err);
       if (err.name === 'CastError') {
         next(new BadRequestError('Невалидный id')); // 400
       } else { next(err); }
@@ -97,7 +93,6 @@ module.exports.getUserID = (req, res, next) => {
   User.findById(req.params.id)// запрос одного
     .then((users) => {
       if (!users) {
-        // res.status(404).send({ message: 'Пользователь с указанным _id не найден' });
         throw new NotFoundError('Пользователь с указанным _id не найден');// 404
       } else {
         res.send({
@@ -109,7 +104,6 @@ module.exports.getUserID = (req, res, next) => {
       }
     })
     .catch((err) => {
-      // console.dir(err);
       if (err.name === 'CastError') {
         next(new BadRequestError('Невалидный id')); // 400
       } else { next(err); }
@@ -141,7 +135,6 @@ module.exports.updateProfileUser = (req, res, next) => {
       _id: user.id,
     }))
     .catch((err) => {
-      // console.dir(err);
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при обновлении профиля')); // 400
       } else { next(err); }
@@ -167,7 +160,6 @@ module.exports.updateAvatarUser = (req, res, next) => {
       _id: user.id,
     }))
     .catch((err) => {
-      // console.dir(err);
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные при обновлении аватара')); // 400
       } else { next(err); }
