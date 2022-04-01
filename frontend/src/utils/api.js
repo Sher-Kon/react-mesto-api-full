@@ -2,7 +2,7 @@
 class Api {
     constructor(config) {
         this._baseUrl = config.baseUrl;
-        this._headers = config.headers;
+        // this._headers = config.headers;
     }
 
     _checkResponse(res) {
@@ -16,17 +16,14 @@ class Api {
     getInitialCards(JWT) {
         return fetch(this._baseUrl + "cards", {
             method: 'GET',
-            headers: this._headers
-            //headers:
-            //{
-            //    "Content-Type": "application/json",
-            //    "Authorization": `Bearer ${JWT}`
-            //}
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            }
         })
             .then(this._checkResponse)
             .then((result) => {
-                // console.log("Получение карточек!");
-                // console.dir(result); // вывести полученное в консоль
                 return result;
             });
     }
@@ -42,8 +39,6 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                // console.log("Получение пользователя!");
-                //console.dir(result); // вывести полученное в консоль
                 return result;
             });
     }
@@ -51,12 +46,11 @@ class Api {
     writeProfile(data,JWT) {
         return fetch(this._baseUrl + "users/me", {
             method: 'PATCH',
-            headers: this._headers,
-            //headers:
-            //{
-            //    "Content-Type": "application/json",
-            //    "Authorization": `Bearer ${JWT}`
-            //},
+            headers:
+            {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${JWT}`
+            },
             body: JSON.stringify({
                 name: data.name,
                 about: data.about
@@ -83,7 +77,6 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                // console.log("api: Добавили карточку");
                 return result;
             });
     }
@@ -117,7 +110,6 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                // console.log("api: сохранили аватар");
                 return result;
             });
     }
@@ -133,7 +125,6 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                // console.log("api: Добавили лайк");
                 return result;
             });
     }
@@ -149,7 +140,6 @@ class Api {
         })
             .then(this._checkResponse)
             .then((result) => {
-                // console.log("api: Удалили лайк");
                 return result;
             });
     }
@@ -165,10 +155,9 @@ class Api {
 const api = new Api({
     baseUrl: 'https://api.domainname.sher-kon.nomoredomains.work/',
     // baseUrl: 'http://localhost:3001/',
-    headers: {
-        'Content-Type': 'application/json',
-        "Authorization": `Bearer ${JWT}`
-    }
+    //headers: {
+    //    'Content-Type': 'application/json'
+    //}
 });
 
 export default api;
