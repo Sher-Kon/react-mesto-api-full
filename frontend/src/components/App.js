@@ -58,10 +58,10 @@ function App() {
     console.dir(currentUser._id);
     isLiked
       ? api.delLike(card._id, card.token).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        setCards((state) => state.map((c) => c === card._id ? newCard : c));//c._id ===
       }).catch((err) => alert(err))
       : api.setLike(card._id, card.token).then((newCard) => {
-        setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
+        setCards((state) => state.map((c) => c === card._id ? newCard : c));//c._id ===
       }).catch((err) => alert(err));
   }
 
