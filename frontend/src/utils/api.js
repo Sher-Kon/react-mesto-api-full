@@ -90,7 +90,6 @@ class Api {
     deleteCard(cardId,JWT) {
         return fetch(this._baseUrl + "cards/" + cardId, {
             method: 'DELETE',
-            // headers: this._headers
             headers:
             {
                 "Content-Type": "application/json",
