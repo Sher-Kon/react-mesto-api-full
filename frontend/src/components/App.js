@@ -42,7 +42,7 @@ function App() {
           setCurrentUser(retUser)
         }).catch((err) => alert(err));
         api.getInitialCards(jwt).then((retCards) => {
-          setCards(reverse(retCards.cards))
+          setCards(retCards.cards.reverse())
         }).catch((err) => alert(err));
         // откроем cards
         history.push("/");
@@ -174,7 +174,7 @@ function App() {
             setCurrentUser(retUser)
           })
           api.getInitialCards(jwt).then((retCards) => {
-            setCards(reverse(retCards.cards))
+            setCards(retCards.cards.reverse())
           })
           // откроем cards
           history.push("/");
