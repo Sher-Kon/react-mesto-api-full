@@ -42,7 +42,7 @@ function App() {
           setCurrentUser(retUser)
         }).catch((err) => alert(err));
         api.getInitialCards(jwt).then((retCards) => {
-          setCards(retCards.cards.reverse())
+          setCards(retCards.cards.reverse()) //изменим порядок массива
         }).catch((err) => alert(err));
         // откроем cards
         history.push("/");
